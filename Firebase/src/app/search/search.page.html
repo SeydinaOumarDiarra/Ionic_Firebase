@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Search</ion-title>
+    <ion-buttons slot="starts">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+  [(ngModel)]="myInput"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="filterList($event)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
+
+<ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label>NOM</ion-label>
+      <ion-label>Tel</ion-label>
+    </ion-item>
+  </ion-list>
+    <ion-list *ngFor="let response of userList">
+      <ion-item lines="none">
+        <ion-label>{{response.name}}</ion-label>
+        <ion-label>{{response.tel}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

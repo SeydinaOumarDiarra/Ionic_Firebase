@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  
+  <div class="login-logo">
+    <img src="../../assets/assets/image/sign.jpg" alt="Login logo">
+  </div>
+
+  <form #signForm="ngForm" novalidate>
+    <ion-list  style="padding: 0px 25px">
+
+      <ion-item>
+        <ion-label position="floating" color="black">Nom complèt</ion-label>
+        <ion-input [(ngModel)]="log.name" name="name" type="text" #name="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="name.invalid && name.touched">
+            Nom obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black">Téléphone</ion-label>
+        <ion-input [(ngModel)]="log.tel" name="tel" type="text" #tel="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="tel.invalid && tel.touched">
+            Téléphone obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black">E-mail</ion-label>
+        <ion-input [(ngModel)]="log.email" name="email" type="text" #email="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="email.invalid && email.touched">
+            E-mail obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black">Mot de passe</ion-label>
+        <ion-input [(ngModel)]="log.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="password.invalid && password.touched">
+          Mot de passe obligatoire
+      </ion-text>
+    </ion-list>
+     
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" [disabled]="signForm.invalid" style="padding: 0px 18px" (click)="onSign(signForm)" type="submit" expand="block">S'inscrire</ion-button>
+      </ion-col>
+    </ion-row> 
+  </form>
+
+</ion-content>

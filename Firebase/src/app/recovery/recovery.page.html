@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recupération de Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  
+  <div class="login-logo">
+    <img src="../../assets/assets/image/recovery.png" alt="Login logo">
+  </div>
+
+  <form #recoveryForm="ngForm" novalidate>
+    <ion-list  style="padding: 0px 18px">
+      <ion-item>
+        <ion-label position="floating" color="black">E-mail</ion-label>
+        <ion-input [(ngModel)]="log.email" name="email" type="text" #email="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="email.invalid && email.touched">
+            Email obligatoire
+      </ion-text>
+      </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" [disabled]="recoveryForm.invalid" style="padding: 0px 18px" (click)="onRecovery(recoveryForm)" type="submit" expand="block">Envoyer</ion-button>
+      </ion-col>
+    </ion-row>    
+  </form>
+
+</ion-content>

@@ -1,0 +1,34 @@
+  // background-color: #0cd1e8;
+.header{
+  background-color: #E4C95C;
+  height: 180px;
+  padding-top: 1px;
+}
+
+.header h2 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+.img-boxe {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.border-white {
+  border: 4px solid white;
+  border-radius: 50%;
+  width: fit-content;
+}
+
+
+.flex {
+  display: flex;
+  justify-content: center;
+  margin-top: -76px;
+}

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reset Password</ion-title>
+    <ion-buttons slot="starts">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  
+  <div class="login-logo">
+    <img src="../../assets/assets/image/reset.png" alt="Login logo">
+  </div>
+
+  <form #resetForm="ngForm" novalidate>
+    <ion-list  style="padding: 0px 18px">
+      <ion-item>
+        <ion-label position="floating" color="black">Ancien mot de passe</ion-label>
+        <ion-input [(ngModel)]="log.ancPassword" name="ancPassword" type="text" #ancPassword="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="ancPassword.invalid && ancPassword.touched">
+            Acien mot de passe obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black">Nouveau mot de passe</ion-label>
+        <ion-input [(ngModel)]="log.nouvPassword" name="nouvPassword" type="text" #nouvPassword="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="nouvPassword.invalid && nouvPassword.touched">
+            Nouveau mot de passe obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black">Confirmer mot de passe</ion-label>
+        <ion-input [(ngModel)]="log.confnouvPassword" name="confnouvPassword" type="text" #confnouvPassword="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="confnouvPassword.invalid && confnouvPassword.touched">
+            Confirmation mot de passe obligatoire
+      </ion-text>
+
+      </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" [disabled]="resetForm.invalid" style="padding: 0px 18px" (click)="onReset(resetForm)" type="submit" expand="block">Ré-initialiser</ion-button>
+      </ion-col>
+    </ion-row>    
+  </form>
+
+</ion-content>

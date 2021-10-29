@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true">
+  <div class="login-logo">
+    <img src="../../assets/assets/image/login.png" alt="Login logo">
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list  style="padding: 0px 18px">
+      <ion-item>
+        <ion-label position="floating" color="black">E-mail</ion-label>
+        <ion-input [(ngModel)]="login.email" name="email" type="text" #email="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="email.invalid && email.touched">
+            E-mail obligatoire
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating" color="black">Mot de passe</ion-label>
+        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="password.invalid && password.touched">
+          Mot de passe obligatoire
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" [disabled]="loginForm.invalid" style="padding: 0px 18px" (click)="onLogin(loginForm)" type="submit" expand="block">Se connecter</ion-button>
+      </ion-col>
+    </ion-row>    
+    <ion-row>
+      <ion-col>
+        <ion-button color="medium"  style="width: 100%; padding: 0px 18px;" (click)="onSign()">S'inscrire</ion-button>
+      </ion-col>
+    </ion-row><br>
+    <ion-row>
+      <a style="padding: 0px 0px 0px 110px; color: rgb(95, 28, 28);" (click)="recovery()">Mot de passe oublié ?</a>
+    </ion-row> 
+  </form>
+</ion-content>
